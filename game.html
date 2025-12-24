@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stockin - 메인</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script type="text/javascript" src="script.js" defer></script>
+</head>
+<body style="height: 100%; overflow: hidden; display: flex;">
+    <div style="width: 0.5%;"></div>
+    <div id="news_page" style="height: 100%; width: 48.5%; float: left; overflow-x: hidden;">
+        <div style="height: 50px;">
+            <div id="news_week" style="font-size: 35px;">뉴스-1주차</div>
+        </div>
+        <hr>
+        <div id="news_week_0" style="height: 202px;width: 100%;border-width: 1px;">
+            <div style="height: auto;border-style: solid;border-width: 1px;float: left;">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_0_1">[주요] 2개월 뒤 대선, 기업들의 A 후보 지지 선언</div>
+                <div class="news_sub" id="news_0_1_sub">N 전자, S 항공우주, R 게임, X IT, H 중공업...</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_0_2">[주요] B 후보를 지지하는 기업들, 막상막하의 심리전</div>
+                <div class="news_sub" id="news_0_2_sub">U차, Z 엔터, O 식품, P 건설, T 제약...</div>
+            </div>
+        </div>
+        <div class="container_news" id="news_week_1">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_1_1">[1주차] N사, "3년만에 휴대폰 출시 예정"</div>
+                <div class="news_sub" id="news_1_1_sub">N사의 대표인 000는 삼주 이내로 3년 만에 완전히 새로운 모습으로 탈바꿈한 휴대폰을 출시할 예정이라고 밝혔다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_1_2">[1주차] 한국 우주 비행, 두달 이내에 우주선 쏘아올릴 예정</div>
+                <div class="news_sub" id="news_1_2_sub">며칠 전, 시험발사를 마친 우주선 '오름'이 마지막 최종 점검을 마쳤다. 발사는 두 달 뒤로 예정되어 있으며, 이는 우리나라가 우주를 향해 한 발자국 도약을 하게 된 계기가 될 것으로 보인다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_1_3"></div>
+                <div class="news_sub" id="news_1_3_sub"></div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_1_4">[1주차] 대표 ○○. "국내 최고 높이 타워 건설 예정."</div>
+                <div class="news_sub" id="news_1_4_sub">대표 ○○은 국내 최고 높이 타워가 건설될 예정이라고 오늘 아침 밝혔다. 그에 따라  부대표 ☆☆☆은 "도박적인 선택이겠지만 응원 부탁드린다"라며 입장을 표했다.</div>
+            </div>
+        </div>
+        <div class="container_news" id="news_week_2" style="display: none;">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_2_1">[2주차] 대화형 인공지능 누리, 개발 완료</div>
+                <div class="news_sub" id="news_2_1_sub">대화형 인공지능인 누리가 마지막 테스트를 통과하며 상용화를 눈앞에 두고 있다. 인공지능은 질문에 대답을 해주는 것에 그치지 않고 더 나아가 자세히 파고들 수 있다고 밝혔다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_2_2">[2주차] 새로운 영양제 출시 완료</div>
+                <div class="news_sub" id="news_2_2_sub">제약회사 T사는 지금까지는 상상하지 못할 새로운 영양제를 출시했단 포부를 밝혔다. 이번 영양제에는 최근 개발된 성분인 &&을 전의 영양제와는 확실히 다를 것이라는 입장을 밝혔다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_2_3">[2주차] U사, 새로운 전기차 출시 예정.</div>
+                <div class="news_sub" id="news_2_3_sub">U사의 전기차 출시가 한 달이 채 남지 않았다. U사의 대표인 I씨는 "이번에 출시될 전기차는 성능에 최대한 초점을 맞췄다"라고 포부있게 밝혔다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_2_4">[2주차] O사, 저번과는 다른 매운 라면 개발해</div>
+                <div class="news_sub" id="news_2_4_sub">식품 회사 O사는 지금까지의 라면과는 이색적인 맛을 가진 매운 라면을 출시할 예정이라고 밝혔다. 대표 H는 "최선을 다해 만든 만큼 사람들이 좋아해 줬으면 한다"라는 포부를 내세웠다.</div>
+            </div>
+        </div>
+        <div class="container_news" id="news_week_3" style="display: none;">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_3_1"></div>
+                <div class="news_sub" id="news_3_1_sub"></div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_3_2"></div>
+                <div class="news_sub" id="news_3_2_sub"></div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_3_3"></div>
+                <div class="news_sub" id="news_3_3_sub"></div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_3_4">[3주차] R사, 게임 출시 예정</div>
+                <div class="news_sub" id="news_3_4_sub">곧 R사가 새로운 게임을 출시할 것이라 밝혔다. "이번 게임은 전과는 달리 확률성이 짙으며 그로 인해 스토리가 변하는 것을 지켜봐주시길 바란다"라고 전했다.</div>
+            </div>
+        </div>
+        <div class="container_news" id="news_week_4" style="display: none;">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_4_1">-[4주차 첫 번째 뉴스 헤드라인]</div>
+                <div class="news_sub" id="news_4_1_sub">어쩌고저쩌고</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_4_2">[4주차] 대화형 인공지능 누리, 개인정보 유출</div>
+                <div class="news_sub" id="news_4_2_sub">저번에 출시한 대화형 인공지능 누리에 의해 개인정보가 유출된다는 것이 밝혀지며 사용자들의 대거 이탈이 발생했다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_4_3">[4주차] 대규모 해양설비 수조, 눈 앞으로 다가왔다</div>
+                <div class="news_sub" id="news_4_3_sub">대규모 해양설비 수조의 공사 예정일이 다가오고 있다. 정확한 공사 시작 날짜는 밝혀지지 않았지만 공사 장소가 확정되는 순간 바로 공사를 시작할 것이라 밝혔다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_4_4"></div>
+                <div class="news_sub" id="news_4_4_sub"></div>
+            </div>
+        </div>
+        <div class="container_news" id="news_week_5" style="display: none;">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_5_1"></div>
+                <div class="news_sub" id="news_5_1_sub"></div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_5_2">-[5주차 두 번째 뉴스 헤드라인]</div>
+                <div class="news_sub" id="news_5_2_sub"></div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_5_3"></div>
+                <div class="news_sub" id="news_5_3_sub"></div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_5_4"></div>
+                <div class="news_sub" id="news_5_4_sub"></div>
+            </div>
+        </div>
+        <div class="container_news" id="news_week_6" style="display: none;">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_6_1">[6주차] 대규모 해양설비 수조, 결국 실패로 돌아가나</div>
+                <div class="news_sub" id="news_6_1_sub">대규모 해양설비 수조가 결국 실패로 돌아갔다. 주변 지역 주민들의 거센 반발이 실패의 가장 큰 이유 중 하나였다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_6_2">-[6주차 두 번째 뉴스 헤드라인]</div>
+                <div class="news_sub" id="news_6_2_sub">어쩌고저쩌고</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_6_3">[6주차] 아이돌 ☆, 갑작스러운 예전 노래 역주행</div>
+                <div class="news_sub" id="news_6_3_sub">아이돌 ☆의 전 앨범이 갑작스레 흥하고 있다. 당시에는 그리 흥하지 않았던 곡이 지금에서야 사람들의 취향에 맞아떨어진 것으로 보인다.</div>
+            </div>
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_6_4">-[6주차 네 번째 뉴스 헤드라인]</div>
+                <div class="news_sub" id="news_6_4_sub">어쩌고저쩌고</div>
+            </div>
+        </div>
+        <div id="news_week_7" style="height: 101px;width: 100%;border-width: 1px;display: none;">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_7_1">-[7주차 첫 번째 뉴스 헤드라인]</div>
+                <div class="news_sub" id="news_7_1_sub">어쩌고저쩌고</div>
+            </div>
+        </div>
+        <div id="news_week_8" style="height: 101px;width: 100%;border-width: 1px;display: none;">
+            <div class="container_news_">
+                <div class="news_img"></div>
+                <div class="news_text" id="news_8_1">-[8주차 첫 번째 뉴스 헤드라인]</div>
+                <div class="news_sub" id="news_8_1_sub">어쩌고저쩌고</div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 0.5%;"></div>
+    <div style="width: 1px; background-color: black;"></div>
+    <div style="width: 0.5%;"></div>
+    <div id="market_page" style="height: 100%; width: 49%; overflow: hidden;">
+        <div style="height: 50px; display: flex;">
+            <div id="market_week" style="font-size: 35px;">주식거래소-1주차</div>
+            <div style="height: 50px; width: 200px; float: right; display: flex;">
+                <div>잔액:</div>
+                <div id="money">10,000,000</div>원
+            </div>
+        </div>
+    
+        <hr>
+    
+        <div id="jeonja" style="height:auto">
+            <canvas id="c_jeonja"></canvas>
+        </div>
+        <div id="hangonguju" style="height:auto">
+            <canvas id="c_hangonguju"></canvas>
+        </div>
+        <div id="cha" style="height:auto">
+            <canvas id="c_cha"></canvas>
+        </div>
+        <div id="enter" style="height:auto">
+            <canvas id="c_enter"></canvas>
+        </div>
+        <div id="shikpoom" style="height:auto">
+            <canvas id="c_shikpoom"></canvas>
+        </div>
+        <div id="gunsul" style="height:auto">
+            <canvas id="c_gunsul"></canvas>
+        </div>
+        <div id="game" style="height:auto">
+            <canvas id="c_game"></canvas>
+        </div>
+        <div id="jaeyak" style="height:auto">
+            <canvas id="c_jaeyak"></canvas>
+        </div>
+        <div id="it" style="height:auto">
+            <canvas id="c_it"></canvas>
+        </div>
+        <div id="joongongup" style="height:auto">
+            <canvas id="c_joongongup"></canvas>
+        </div>
+        
+    
+        <script src="makingChart.js"></script>
+    
+        <br> 
+    
+        <div style="height: 50px; text-align: center;">
+            <button class="chart_button" onclick="chartJeonja()">N 전자</button>
+            <button class="chart_button" onclick="chartHangonguju()">S 항공우주</button>
+            <button class="chart_button" onclick="chartCha()">U 차</button>
+            <button class="chart_button" onclick="chartEnter()">Z 엔터</button>
+            <button class="chart_button" onclick="chartShikpoom()">O 식품</button>
+            <button class="chart_button" onclick="chartGunsul()">P 건설</button>
+            <button class="chart_button" onclick="chartGame()">R 게임</button>
+            <button class="chart_button" onclick="chartJaeyak()">T 제약</button>
+            <button class="chart_button" onclick="chartIt()">X IT</button>
+            <button class="chart_button" onclick="chartJoongongup()">H 중공업</button>
+        </div>
+    
+        <hr>
+    
+        <div style="height: auto; display: flex;">
+            <div style="width: 150px; text-align: center;">보유 주식</div>
+            <select class="select_regular" id="have_select" onchange="change_have()">
+                <option value="전자">N 전자</option>
+                <option value="항공우주">S 항공우주</option>
+                <option value="차">U 차</option>
+                <option value="엔터">Z 엔터</option>
+                <option value="식품">O 식품</option>
+                <option value="건설">P 건설</option>
+                <option value="게임">R 게임</option>
+                <option value="제약">T 제약</option>
+                <option value="IT">X IT</option>
+                <option value="중공업">H 중공업</option>
+            </select>
+            -
+            <div id="have" style="height: 20px; width: 100px; border-style: solid; border-width: 1px; text-align: center;">0</div>
+        </div>
+    
+        <hr>
+    
+        <br>
+    
+        <div style="height: auto; display: flex;">
+            <div style="width: 180px;">
+                <div style="height: 30px; display: flex;">
+                    <div style="height: 20px; width: 60px; text-align: center;">종목</div>
+                    <select id="buy_company" style="height: 20px;">
+                        <option value="전자">N 전자</option>
+                        <option value="항공우주">S 항공우주</option>
+                        <option value="차">U 차</option>
+                        <option value="엔터">Z 엔터</option>
+                        <option value="식품">O 식품</option>
+                        <option value="건설">P 건설</option>
+                        <option value="게임">R 게임</option>
+                        <option value="제약">T 제약</option>
+                        <option value="IT">X IT</option>
+                        <option value="중공업">H 중공업</option>
+                    </select>
+                </div>
+            
+                <div style="height: 30px; display: flex;">
+                    <div style="height: 20px; width: 60px; text-align: center;">수량</div>
+                    <input type="number" id="buy_number" min="0" value="0" style="height: 20px; width: 95px;" onchange="buy_change()">
+                </div>
+            </div>
+            <button class="button_regular" id="buy" onclick="buy()">매수</button>
+            <div id="buy_alert" style="width: 200px; text-align: right; display: none;">보유 잔액을 초과합니다.</div>
+        </div>
+    
+        <br>
+    
+        <div style="height: auto; display: flex;">
+            <div style="width: 180px;">
+                <div style="height: 30px; display: flex;">
+                    <div style="height: 20px; width: 60px; text-align: center;">종목</div>
+                    <select id="sell_company" style="height: 20px;">
+                        <option value="전자">N 전자</option>
+                        <option value="항공우주">S 항공우주</option>
+                        <option value="차">U 차</option>
+                        <option value="엔터">Z 엔터</option>
+                        <option value="식품">O 식품</option>
+                        <option value="건설">P 건설</option>
+                        <option value="게임">R 게임</option>
+                        <option value="제약">T 제약</option>
+                        <option value="IT">X IT</option>
+                        <option value="중공업">H 중공업</option>
+                    </select>
+                </div>
+                
+                <div style="height: 30px; display: flex;">
+                    <div style="height: 20px; width: 60px; text-align: center;">수량</div>
+                    <input type="number" id="sell_number" min="0" value="0" style="height: 20px; width: 95px;" onchange="sell_change()">
+                </div>
+            </div>
+            <button class="button_regular" id="sell" onclick="sell()">매도</button>
+        </div>
+    
+        <br>
+    
+        <button class="button_regular" id="button_nextweek" onclick="next_week()">다음주로 넘어가기</button>
+    </div>
+
+    <script>
+        setTimeout(function(){
+            alert("해당 게임은\n뉴스를 통해 주식의 변동을 파악해 돈을 버는 게임입니다.\n뉴스를 잘 확인해 주세요.");
+            alert("주차가 늘어갈 수록 스크롤을 내려 추가된 뉴스를 확인해주십시오.");
+            alert("기업이나 뉴스 사건은 게임적 요소를 위해 임의로 만들어진 것으로,\n현실과 관련이 없습니다.\n이 점 참고하여 플레이 부탁드립니다.");
+            alert("그럼 건승을 빕니다!");
+            alert("1주차... 뉴스 및 그래프가 업데이트 되었습니다.");
+        }, 300);
+    </script>
+</body>
+</html>
